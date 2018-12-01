@@ -11,26 +11,31 @@ var venue = {
 
 // Select a user clicked specific seat option from a dropdown
 function selectSeat() {
+    if (venue.ticketsAvaliable.length > 0) {
 
-    // Get selected seat from user
-    var seatPicked = document.getElementById("mySelect").value;
-    document.getElementById("demo").innerHTML = "You picked seat " + seatPicked + ".";
-    // Test 
-    // console.log(seatPicked);
-    // console.log(venue.ticketsAvaliable.indexOf(seatPicked));
-    // Remove selected seat from ticketsAvaliable
-    // Push selected room into ticketsPurchased
-    venue.ticketsAvaliable.splice(venue.ticketsAvaliable.indexOf(seatPicked), 1);
-    venue.ticketsPurchased.push(seatPicked);
-    
-    // Remove selected item from dropdown
-    var ticketPurchasedRemoved = document.getElementById("mySelect");
-    ticketPurchasedRemoved.remove(ticketPurchasedRemoved.selectedIndex);
-    
-    // Display Total Cost of Tickets Purchased
-    var totalCost = venue.ticketsPurchased.length * 100;
-    document.getElementById("totalCost").innerHTML = "$ " + totalCost;
-}
+        // Get selected seat from user
+        var seatPicked = document.getElementById("mySelect").value;
+        document.getElementById("demo").innerHTML = "You picked seat " + seatPicked + ".";
+        // Test 
+        // console.log(seatPicked);
+        // console.log(venue.ticketsAvaliable.indexOf(seatPicked));
+        // Remove selected seat from ticketsAvaliable
+        // Push selected room into ticketsPurchased
+        venue.ticketsAvaliable.splice(venue.ticketsAvaliable.indexOf(seatPicked), 1);
+        venue.ticketsPurchased.push(seatPicked);
+        
+        // Remove selected item from dropdown
+        var ticketPurchasedRemoved = document.getElementById("mySelect");
+        ticketPurchasedRemoved.remove(ticketPurchasedRemoved.selectedIndex);
+        
+        // Display Total Cost of Tickets Purchased
+        var totalCost = venue.ticketsPurchased.length * 100;
+        document.getElementById("totalCost").innerHTML = "$ " + totalCost;
+    } else {
+        document.getElementById("demo").innerHTML = "I'm sorry there are no tickets available";
+    }
+} 
+
 
 // Select a user clicked specific seat option from a dropdown
 function unreserveSeat() {

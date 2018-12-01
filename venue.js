@@ -9,8 +9,10 @@ var venue = {
     }
 };
 
+var totalCost = "";
 // Select a user clicked specific seat option from a dropdown
 function selectSeat() {
+    // Check to see if any seats arw available
     if (venue.ticketsAvaliable.length > 0) {
 
         // Get selected seat from user
@@ -29,8 +31,10 @@ function selectSeat() {
         ticketPurchasedRemoved.remove(ticketPurchasedRemoved.selectedIndex);
         
         // Display Total Cost of Tickets Purchased
-        var totalCost = venue.ticketsPurchased.length * 100;
+        totalCost = venue.ticketsPurchased.length * 100;
         document.getElementById("totalCost").innerHTML = "$ " + totalCost;
+        
+        // if tickets are all sold out
     } else {
         document.getElementById("demo").innerHTML = "I'm sorry there are no tickets available";
     }
@@ -39,20 +43,30 @@ function selectSeat() {
 
 // Select a user clicked specific seat option from a dropdown
 function unreserveSeat() {
-
-    // Get selected seat from user
-    var seatReserved = document.getElementById("mySelectReserved").value;
-    document.getElementById("demo").innerHTML = "You have returned the ticket for seat " + seatReserved + ".";
-    // Remove selected seat from ticketsAvaliable
-    // Push selected room into ticketsPurchased
-    venue.ticketsPurchased.splice(venue.ticketsAvaliable.indexOf(seatReserved), 1);
-    venue.ticketsAvaliable.push(seatReserved);
-    
-    // Remove selected item from dropdown
-    var removeRemoved = document.getElementById("mySelectReserved");
-    removeRemoved.remove(removeRemoved.selectedIndex);
+    // Check to see if the user has purchased a ticket
+    if (venue.ticketsPurchased.length > 0) {
+        
+        // Get selected seat from user
+        var seatReserved = document.getElementById("mySelectReserved").value;
+        document.getElementById("demo").innerHTML = "You have returned the ticket for seat " + seatReserved + ".";
+        // Remove selected seat from ticketsAvaliable
+        // Push selected room into ticketsPurchased
+        venue.ticketsPurchased.splice(venue.ticketsAvaliable.indexOf(seatReserved), 1);
+        venue.ticketsAvaliable.push(seatReserved);
+        
+        // Remove selected item from dropdown
+        var removeRemoved = document.getElementById("mySelectReserved");
+        removeRemoved.remove(removeRemoved.selectedIndex);
+        
+        // Update total cost after returning ticket
+        totalCost = totalCost - 100;
+        document.getElementById("totalCost").innerHTML = "$ " + totalCost;
+        
+    // if no tickets purchsed yet
+    } else {
+        document.getElementById("demo").innerHTML = "You have not purchased any tickets yet";
+    }
 }
-
 
 
 // Create dropdown with each item from ticketsAvailable

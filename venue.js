@@ -1,7 +1,7 @@
 var venue = {
     name: "TicketMAster",
     ticketsAvaliable: ["A1","A2","A3","A4","A5","B1","B2","B3","B4","B5"],
-    ticketsPurchased: ["A6", "A7", "B6", "B7"],
+    ticketsPurchased: [],
     
     numberOfTicketsAvailable: function() {
         // length of the number of seats available, returned as an integer (1,5,20, etc)
@@ -16,8 +16,8 @@ function selectSeat() {
     var seatPicked = document.getElementById("mySelect").value;
     document.getElementById("demo").innerHTML = "You picked seat " + seatPicked + ".";
     // Test 
-    console.log(seatPicked);
-    console.log(venue.ticketsAvaliable.indexOf(seatPicked));
+    // console.log(seatPicked);
+    // console.log(venue.ticketsAvaliable.indexOf(seatPicked));
     // Remove selected seat from ticketsAvaliable
     // Push selected room into ticketsPurchased
     venue.ticketsAvaliable.splice(venue.ticketsAvaliable.indexOf(seatPicked), 1);
@@ -26,6 +26,10 @@ function selectSeat() {
     // Remove selected item from dropdown
     var ticketPurchasedRemoved = document.getElementById("mySelect");
     ticketPurchasedRemoved.remove(ticketPurchasedRemoved.selectedIndex);
+    
+    // Display Total Cost of Tickets Purchased
+    var totalCost = venue.ticketsPurchased.length * 100;
+    document.getElementById("totalCost").innerHTML = "$ " + totalCost;
 }
 
 // Select a user clicked specific seat option from a dropdown
@@ -33,14 +37,11 @@ function unreserveSeat() {
 
     // Get selected seat from user
     var seatReserved = document.getElementById("mySelectReserved").value;
-
-    // Tests
-    console.log(seatReserved);
-    // console.log(venue.ticketsReserved.indexOf(seatReserved));
+    document.getElementById("demo").innerHTML = "You have returned the ticket for seat " + seatReserved + ".";
     // Remove selected seat from ticketsAvaliable
     // Push selected room into ticketsPurchased
-    venue.ticketsAvaliable.splice(venue.ticketsAvaliable.indexOf(seatReserved), 1);
-    venue.ticketsPurchased.push(seatReserved);
+    venue.ticketsPurchased.splice(venue.ticketsAvaliable.indexOf(seatReserved), 1);
+    venue.ticketsAvaliable.push(seatReserved);
     
     // Remove selected item from dropdown
     var removeRemoved = document.getElementById("mySelectReserved");

@@ -18,9 +18,7 @@ function selectSeat() {
         // Get selected seat from user
         var seatPicked = document.getElementById("mySelect").value;
         document.getElementById("demo").innerHTML = "You picked seat " + seatPicked + ".";
-        // Test 
-        // console.log(seatPicked);
-        // console.log(venue.ticketsAvaliable.indexOf(seatPicked));
+
         // Remove selected seat from ticketsAvaliable
         // Push selected room into ticketsPurchased
         venue.ticketsAvaliable.splice(venue.ticketsAvaliable.indexOf(seatPicked), 1);
@@ -49,6 +47,7 @@ function unreserveSeat() {
         // Get selected seat from user
         var seatReserved = document.getElementById("mySelectReserved").value;
         document.getElementById("demo").innerHTML = "You have returned the ticket for seat " + seatReserved + ".";
+        
         // Remove selected seat from ticketsAvaliable
         // Push selected room into ticketsPurchased
         venue.ticketsPurchased.splice(venue.ticketsAvaliable.indexOf(seatReserved), 1);

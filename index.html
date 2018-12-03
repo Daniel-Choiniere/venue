@@ -3,36 +3,61 @@
 <html>
     <head>
         <title>Purchase Event Tickets</title>
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             .hotelName {
-                color: red;
+                color: #162c4f;
+                text-align: center;
+                padding-top: 50px;
+                font-family: Georgia;
+                background-color: #c9d8ef;
+                padding-bottom: 50px;
+                letter-spacing: 3px;
             }
             
             .subTitle {
-                color: gray;
+                color: #4d6791;
+                font-family: Trebuchet MS;
             }
+            
+            .selectButton {
+                background-color: #edf1f7; 
+                width: 100px;
+                height: 25px;
+            }
+            
+            .selectButton:hover {
+                border-radius: 0px;
+                background-color: #008CBA;
+                color: white;
+                cursor: pointer;
+            }
+        
         </style>
     </head>
     
         <body>
             <h1 class="hotelName">TicketMaster</h1>
+            <!--<img src="https://media.giphy.com/media/5tmS2QLd10VojTYWIV/giphy.gif" alt="ticketmaster" width="100" height="100"-->
             <p></p>
-            
-            <h3 class="subTitle">Seats Avaliable</h3>
-                <div id="seatsAvail"></div>
-                <button type="button" onclick="selectSeat()">Select A Ticket</button>
-                </br>
-                <p id="demo"></p>
-                </br>
-            <h3 class="subTitle">Seats Reserved</h3>
-                <div id="seatsReserved"></div>
-                <button type="button" onclick="unreserveSeat()">Return A Ticket</button>
-                </br>
-                </br>
-            <h3 class="subTitle">Total Cost</h3>
+            <div></div>
+            <div style="float: left; padding-left: 225">
+                <h3 class="subTitle">Seats Avaliable</h3>
+                    <div id="seatsAvail"></div>
+                    <button type="button" class="selectButton" onclick="selectSeat()">Select A Ticket</button>
+            </div>
+            <div style="float: right; padding-right: 225px">
+                <h3 class="subTitle">Seats Reserved</h3>
+                    <div id="seatsReserved"></div>
+                    <button type="button"  class="selectButton" onclick="unreserveSeat()">Return A Ticket</button>
+            </div>
+            </br>
+            <div style="text-align: center">
+                <img src="https://media.giphy.com/media/58F2ZBOqfU63HJhZd7/giphy.gif" alt="ticketmaster" width="100" height="100">
+                <h3 class="subTitle">Total Cost</h3>
                 <p id="totalCost"></p>
-                
+                <p id="demo"></p>
+            </div>
         </body>
         
     <script src="venue.js"></script>

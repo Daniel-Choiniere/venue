@@ -3,24 +3,34 @@
 <html>
     <head>
         <title>Purchase Event Tickets</title>
+        
+        <style>
+            .hotelName {
+                color: red;
+            }
+            
+            .subTitle {
+                color: gray;
+            }
+        </style>
     </head>
     
         <body>
-            <h1 id="hotelName">TicketMaster</h1>
+            <h1 class="hotelName">TicketMaster</h1>
             <p></p>
             
-            <h3>Seats Avaliable</h3>
+            <h3 class="subTitle">Seats Avaliable</h3>
                 <div id="seatsAvail"></div>
                 <button type="button" onclick="selectSeat()">Select A Ticket</button>
                 </br>
                 <p id="demo"></p>
                 </br>
-            <h3>Seats Reserved</h3>
+            <h3 class="subTitle">Seats Reserved</h3>
                 <div id="seatsReserved"></div>
                 <button type="button" onclick="unreserveSeat()">Return A Ticket</button>
                 </br>
                 </br>
-            <h3>Total Cost</h3>
+            <h3 class="subTitle">Total Cost</h3>
                 <p id="totalCost"></p>
                 
         </body>

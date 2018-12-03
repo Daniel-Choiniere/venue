@@ -9,7 +9,7 @@ var venue = {
     }
 };
 
-var totalCost = "";
+var totalCost = "" ;
 // Select a user clicked specific seat option from a dropdown
 function selectSeat() {
     // Check to see if any seats arw available
